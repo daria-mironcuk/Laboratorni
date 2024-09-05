@@ -8,6 +8,7 @@ print(type(name))
 print(type(surname))
 print( type(age))
 
+print(hello)
 print(name)
 print(surname)
-print( age)
+print(age)
