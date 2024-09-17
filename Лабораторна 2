@@ -1,0 +1,33 @@
+
+a = "Hello World"
+b = "Driya"
+c = 15
+d = 52.1
+lst = [a, b, c, d]
+type_lst = []
+value_lst = []
+string = 0
+integer = 0
+floatt = 0
+other = 0
+for f in lst:
+    g = type(f)
+    j = f
+    type_lst.append(g)
+    value_lst.append(j)
+    if type(j) == str:
+        string += 1
+    elif type(j) == int:
+        integer += 1
+    elif type(j) == float:
+        floatt += 1
+    else:
+        other += 1
+if string > integer and string > floatt and string > other:
+    print("Найчастішим типом є 'str'")
+elif integer > string and integer > floatt and integer > other:
+    print("Найчастішим типом є 'int'")
+elif floatt > string and floatt > integer and floatt > other:
+    print("Найчастішим типом є 'float'")
+else:
+    print("Немає найчастішого типу")
