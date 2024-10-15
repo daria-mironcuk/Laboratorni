@@ -1,0 +1,21 @@
+my_dict = {
+    "name": "Дарія",
+    "age": 15,
+    "address": {
+        "street": "Конякіна",
+        "city": "Луцьк",
+        "zipcode": 12345,
+        "country": "Україна"
+    },
+    "last_name": "Мирончук"
+}
+
+types_dict = {
+    key: str(type(value)) for key, value in my_dict.items()
+}
+
+print("Основний словник:")
+print(my_dict)
+
+print("Словник типів:")
+print(types_dict)
