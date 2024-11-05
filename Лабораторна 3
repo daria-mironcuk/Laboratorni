@@ -1,21 +1,18 @@
-my_dict = {
-    "name": "Дарія",
-    "age": 15,
-    "address": {
-        "street": "Конякіна",
-        "city": "Луцьк",
-        "zipcode": 12345,
-        "country": "Україна"
-    },
-    "last_name": "Мирончук"
-}
+dictionary = { 'name': 'Дарія',
+            'age': 15,
+            'dict': { 'street': 'Конякіна',
+                      'city': 'Луцьк',
+                      'zipcode': 12345,
+                      'country': 'Україна'}, 
+            'last_name': 'Мирончук',
+            }
+print(dictionary)
 
-types_dict = {
-    key: str(type(value)) for key, value in my_dict.items()
-}
-
-print("Основний словник:")
-print(my_dict)
-
-print("Словник типів:")
-print(types_dict)
+type_dict = {}  
+for key, value in dictionary.items():
+    if type(value) == dict:
+        for k1, v1 in value.items():
+            type_dict[k1] = type(v1)
+    else:
+        type_dict[key] = type(value)  
+print(type_dict)
