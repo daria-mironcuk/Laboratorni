@@ -1,9 +1,11 @@
 import telebot
 
-bot = telebot.Telebot('7546661484:AAFDuYNLmB2OII5xpbCiqYFJ0RFBgO5SkdI')
+bot = telebot.TeleBot('7546661484:AAFDuYNLmB2OII5xpbCiqYFJ0RFBgO5SkdI', parse_mode=None)
 
-@bot.message_handler(funk=lambda m: True)
+
+@bot.message_handler(func=lambda m: True)
 def echo_all(message):
-        bot.reply_to(message, massage.text)
+    bot.reply_to(message, message.text)
+
 
 bot.infinity_polling()
