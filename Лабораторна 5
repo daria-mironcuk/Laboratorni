@@ -1,0 +1,9 @@
+import telebot
+
+bot = telebot.Telebot('7546661484:AAFDuYNLmB2OII5xpbCiqYFJ0RFBgO5SkdI')
+
+@bot.message_handler(funk=lambda m: True)
+def echo_all(message):
+        bot.reply_to(message, massage.text)
+
+bot.infinity_polling()
