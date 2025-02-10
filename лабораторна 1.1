@@ -1,0 +1,20 @@
+class Daria:
+    def __init__(self, first_name=None, last_name=None, birth_year=None):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.birth_year = birth_year
+
+    def get_course(self):
+        if self.birth_year is None:
+            return None 
+        current_year = 2024
+        entrance_year = self.birth_year + 15  
+        course = current_year - entrance_year + 1
+        return course if 1 <= course <= 4 else None  
+
+    def get_full_name(self):
+
+student_daria = Daria("Дарія", "Мирончук", 2008)
+
+print(student_daria.get_course())  
+print(student_daria.get_full_name())  
