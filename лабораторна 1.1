@@ -7,14 +7,23 @@ class Daria:
     def get_course(self):
         if self.birth_year is None:
             return None 
-        current_year = 2024
-        entrance_year = self.birth_year + 15  
+        current_year = 2025
+        entrance_year = self.birth_year + 14  
         course = current_year - entrance_year + 1
         return course if 1 <= course <= 4 else None  
 
     def get_full_name(self):
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
+        elif self.first_name:
+            return self.first_name
+        elif self.last_name:
+            return self.last_name
+        else:
+            return None
 
 student_daria = Daria("Дарія", "Мирончук", 2008)
 
-print(student_daria.get_course())  
-print(student_daria.get_full_name())  
+print(student_daria.get_course()) 
+
+print(student_daria.get_full_name()) 
