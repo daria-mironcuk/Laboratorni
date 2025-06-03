@@ -1,0 +1,70 @@
+class Daria:
+    def __init__(self, first_name=None, last_name=None, birth_year=None):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.birth_year = birth_year
+
+    def get_course(self):
+        if self.birth_year is None:
+            return None
+        current_year = 2025
+        entrance_year = self.birth_year + 16  # Вступ після 9 класу
+        course = current_year - entrance_year + 1
+        return course if 1 <= course <= 4 else None
+
+    def get_full_name(self):
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
+        elif self.first_name:
+            return self.first_name
+        elif self.last_name:
+            return self.last_name
+        else:
+            return None
+
+
+class CollegeStudent(Daria):
+    def __init__(self, first_name, last_name, birth_year,
+                 email, phone, grades):
+        super().__init__(first_name, last_name, birth_year)
+        self.email = email
+        self.phone = phone
+        self.grades = grades  # список оцінок, наприклад [12, 11, 10]
+
+    def __calculate_average_grade(self):
+        """Приватний метод: обчислює середній бал."""
+        if not self.grades:
+            return 0
+        return sum(self.grades) / len(self.grades)
+
+    def get_student_summary(self):
+        """Публічний метод: повертає повну інформацію про студента."""
+        avg = self.__calculate_average_grade()
+        return (
+            f"ПІБ: {self.get_full_name()}\n"
+            f"Курс: {self.get_course()}\n"
+            f"Email: {self.email}\n"
+            f"Телефон: {self.phone}\n"
+            f"Середній бал: {avg:.2f}"
+        )
+
+
+# Приклад використання:
+student = CollegeStudent(
+    first_name="Дарія",
+    last_name="Мирончук",
+    birth_year=2008,
+    email="daria@example.com",
+    phone="+380991234567",
+    grades=[12, 11, 10, 12]
+)
+
+# Вивід повної інформації про студента
+print("Інформація про студента:\n")
+print(student.get_student_summary())
+
+# Додатково: перевірка, чи курс випускний
+if student.get_course() == 4:
+    print("\n Студентка на випускному курсі.")
+else:
+    print("\n Студентка ще навчається.")
